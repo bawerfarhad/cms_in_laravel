@@ -39,7 +39,7 @@
 <body>
     <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <x-home-navbar-component />
+                <x-navbar />   {{-- this name because the component in the home_component folder and 'home-navbar-component' is the actual component --}}
             </nav>
 
             <main class="py-4">
@@ -60,18 +60,18 @@
 
 
 
-                            <x-home-blog-component id="blog-section">
+                            <x-blog id="blog-section" class="px-3 py-1 rounded-2">
                                 <h1 class="my-4">Page Heading
                                     <small>Secondary Text</small>
                                 </h1>
-                            </x-home-blog-component>
+                            </x-blog>
 
                         </div>
 
                         <!-- Sidebar Widgets Column -->
                         <div class="col-md-4">
 
-                            <x-home-sidebar-wedgets-component />
+                            <x-sidebar />
 
                         </div>
 

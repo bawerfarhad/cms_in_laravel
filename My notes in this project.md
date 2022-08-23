@@ -21,3 +21,16 @@
         '<x-home-blog-component />',   // all blobs in this component
         '<x-home-sidebar-wedgets-component />', // all sidebar widgets are in this component like search categories and more
     ]    
+
+4- when we make a component make sure to components have an organized structure using directories,
+    to make a component directories included use the command  
+    php artisan make:component AdminComponent/DashboardSidebarComponent // this will make a component in the AdminComponent folder
+        // we can access the components in the particular views using this way 
+        <x-home_component.home-blog-component>
+        x- = to let blade know we get access to the component
+        home_component = is the directory
+        .home-blog-component = is the actual component we want to merge to the page
+
+5-  we can configure the way of targeting the component instead of this: <x-home_component.home-blog-component> , writing like this <x-home-blog-component> = specifying the target component only using the name of name of the component
+    for this purpose we have to go to 'app/Providers/AppServiceProvider.php' in the boot function make an alias, look at the "AppServiceProvider.php"
+       

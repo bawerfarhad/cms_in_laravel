@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Home_Component;
 
 use Illuminate\View\Component;
 
-class HomeNavbarComponent extends Component
+class HomeBlogComponent extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class HomeNavbarComponent extends Component
      */
     public function render()
     {
-        return view('components.home-navbar-component');
+        return view('components.home_component.home-blog-component');
     }
 }

@@ -1,7 +1,9 @@
-<div {{$attributes}} >   {{-- allows us to append HTML attribute using the callable tags in the app.blade.php, look at line 63 at ==>> id="blog-section" --}}
-{{--    <h1 class="my-4">Page Heading--}}
-{{--        <small>Secondary Text</small>--}}
-{{--    </h1>--}}
+<div {{$attributes ->merge([ // the merge attribute allows as to append classes from called tags and merge to the classes in this classes in here
+    'class'=>'bg-info',
+    'data'=>'hello man',
+
+    ])}}>   {{-- allows us to append HTML attribute using the callable tags in the app.blade.php, look at line 63 at ==>> id="blog-section" --}}
+
         {{$slot}}  {{-- allow as to accept the php element in the callable tags, look at the app.blade.php at line 64-65-66 --}}
 
     <!-- Blog Post -->
