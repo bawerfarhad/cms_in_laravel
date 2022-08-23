@@ -23,6 +23,6 @@ class HomeNavbarComponent extends Component
      */
     public function render()
     {
-        return view('components.home_component.home-navbar-component');
+        return view('components.home-component.home-navbar-component');
     }
 }

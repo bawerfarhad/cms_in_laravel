@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Home_Component;
+namespace App\View\Components\AdminComponent;
 
 use Illuminate\View\Component;
 
-class HomeSidebarWedgetsComponent extends Component
+class SidebarComponent extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class HomeSidebarWedgetsComponent extends Component
      */
     public function render()
     {
-        return view('components.home-component.home-sidebar-wedgets-component');
+        return view('components.admin-component.sidebar-component');
     }
 }

@@ -25,7 +25,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+{{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Scripts -->
     @vite([
@@ -33,63 +34,22 @@
         'resources/js/app.js',
         'resources/css/blog_home/blog-home.css',
         'resources/vendor/jquery/jquery.js',
-        'resources/vendor/bootstrap/js/bootstrap.bundle.js'
+        'resources/vendor/bootstrap/js/bootstrap.bundle.js',
+
+        'resources/vendor/fontawesome-free/css/all.css', // admin section
+        'resources/css/admin/sb-admin-2.css',
+        'resources/vendor/jquery/jquery.js',
+        'resources/vendor/jquery-easing/jquery.easing.js',
     ])
 </head>
 <body>
     <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <x-navbar />   {{-- this name because the component in the home_component folder and 'home-navbar-component' is the actual component --}}
+                <x-navbar />   {{-- this name because the component in the home-component folder and 'home-navbar-component' is the actual component --}}
             </nav>
 
-            <main class="py-4">
 
-
-
-
-
-                <!-- Page Content -->
-                <div class="container">
-
-                    <div class="row">
-
-                        <!-- Blog Entries Column -->
-                        <div class="col-md-8">
-
-
-
-
-
-                            <x-blog id="blog-section" class="px-3 py-1 rounded-2">
-                                <h1 class="my-4">Page Heading
-                                    <small>Secondary Text</small>
-                                </h1>
-                            </x-blog>
-
-                        </div>
-
-                        <!-- Sidebar Widgets Column -->
-                        <div class="col-md-4">
-
-                            <x-sidebar />
-
-                        </div>
-
-                    </div>
-                    <!-- /.row -->
-
-                </div>
-                <!-- /.container -->
-
-
-
-
-
-
-
-
-
-            </main>
+        @yield('content')
         </div>
 
         <!-- Footer -->

@@ -23,6 +23,6 @@ class HomeBlogComponent extends Component
      */
     public function render()
     {
-        return view('components.home_component.home-blog-component');
+        return view('components.home-component.home-blog-component');
     }
 }

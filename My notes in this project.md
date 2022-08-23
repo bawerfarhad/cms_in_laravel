@@ -33,4 +33,8 @@
 
 5-  we can configure the way of targeting the component instead of this: <x-home_component.home-blog-component> , writing like this <x-home-blog-component> = specifying the target component only using the name of name of the component
     for this purpose we have to go to 'app/Providers/AppServiceProvider.php' in the boot function make an alias, look at the "AppServiceProvider.php"
-       
+    
+    
+6- look at "app/Providers/RouteServiceProvider.php" for redirecting user after logged in or register
+
+7- take a look again for components and the way they work 

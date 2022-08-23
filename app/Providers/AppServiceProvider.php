@@ -2,11 +2,18 @@
 
 namespace App\Providers;
 
-use App\View\Components\Home_Component\HomeNavbarComponent;
-use App\View\Components\Home_Component\HomeSidebarWedgetsComponent;
-use Illuminate\Support\Facades\Blade; // we need this class to work with components
-use App\View\Components\Home_Component\HomeBlogComponent; // the component we need for make an alias
+use App\View\Components\Admin_Component\NavbarComponent;
+use App\View\Components\Home_Component\HomeNavbarComponent; // blog components we need
+use App\View\Components\Home_Component\HomeSidebarWedgetsComponent; // blog components we need
+use Illuminate\Support\Facades\Blade; // this class must be imported to work with components
+use App\View\Components\Home_Component\HomeBlogComponent; // blog components we need
 use Illuminate\Support\ServiceProvider;
+
+//use App\View\Components\AdminComponent\NavbarComponent; // admin dashboard component
+use App\View\Components\AdminComponent\SidebarComponent; // admin dashboard component
+use App\View\Components\AdminComponent\ToolbarComponent; // admin dashboard component
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,10 +34,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        // Home Blog Section Start
         Blade::component('blog',HomeBlogComponent::class);
         Blade::component('navbar',HomeNavbarComponent::class);
         Blade::component('sidebar',HomeSidebarWedgetsComponent::class);
+        // Home Blog Section End
+
+        // Admin Dashboard Section Start
+        Blade::component('admin-sidebar',SidebarComponent::class);
+        Blade::component('admin-toolbar',ToolbarComponent::class);
+        // Admin Dashboard Section End
+
+
+
 //        making an alias for the components
     }
 }
