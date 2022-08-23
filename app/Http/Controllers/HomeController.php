@@ -26,7 +26,4 @@ class HomeController extends Controller
         return view('blog-section.home');
     }
 
-    public function show(){
-        return view('blog-section.blogs');
-    }
 }
