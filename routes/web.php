@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/posts/details', [App\Http\Controllers\PostController::class, 'show'])->name('post.details');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/posts/details/{post}', [PostController::class, 'show'])->name('post.details');
 
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+
+Route::middleware('auth')->group(function(){
+    
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/posts/create', [PostController::class, 'create'])->name('admin.create');
+    Route::post('/admin/post/save', [PostController::class, 'store'])->name('admin.store');
+    Route::get('/admin/posts/', [PostController::class, 'index'])->name('admin.index');
+
+});

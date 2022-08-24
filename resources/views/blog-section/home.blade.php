@@ -8,12 +8,15 @@
             <div class="row">
                 <!-- Blog Entries Column -->
                 <div class="col-md-8">
-                    <x-blog id="blog-section" class="px-3 py-1 rounded-2">
+                    <x-blog id="blog-section"  class="px-3 py-1 rounded-2" :value="$posts">
                         <h1 class="my-4">Page Heading
                             <small>Secondary Text</small>
                         </h1>
                     </x-blog>
                 </div>
+
+                {{-- {{ $posts }} --}}
+
                 <!-- Sidebar Widgets Column -->
                 <div class="col-md-4">
                     <x-sidebar />

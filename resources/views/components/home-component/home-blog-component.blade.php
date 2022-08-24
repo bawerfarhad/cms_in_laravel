@@ -7,23 +7,28 @@
         {{$slot}}  {{-- allow as to accept the php element in the callable tags, look at the app.blade.php at line 64-65-66 --}}
 
 
-    @for($i=0;$i<10;$i++)
 
-        <!-- Blog Post -->
-        <div class="card mb-4">
-            <img class="card-img-top" src="https://via.placeholder.com/750x400" alt="Card image cap">
-            <div class="card-body">
-                <h2 class="card-title">Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a href="{{route('post.details')}}" class="btn btn-primary">Read More &rarr; {{$i+1}}</a>
+        @foreach ($posts as $post)
+            
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ $post->post_image }}" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">{{ $post->title }}</h2>
+                    <p class="card-text">{{ Str::limit($post->body,'50',' ....') }}</p>
+                    <a href="{{route('post.details', $post->id)}}" class="btn btn-primary">Read More &rarr; </a>
+                    {{-- <a href="post/show/{{ $post->id }}" class="btn btn-primary">Read More &rarr; </a> --}}
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="card-footer text-muted">
+                        Posted on {{ $post->created_at->diffForHumans() }}
+                    <p>Tags:</p> 
+                    <p>Writer: <a href="#">{{ $post->user->name }}</a></p>
+                    </div>
+                </div>
             </div>
-            <div class="card-footer text-muted">
-                Posted on January 1, 2017 by
-                <a href="#">Start Bootstrap</a>
-            </div>
-        </div>
 
-    @endfor
+        @endforeach
 
 
     <!-- Pagination -->
@@ -38,3 +43,5 @@
 
 
 </div>
+
+

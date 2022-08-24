@@ -12,6 +12,10 @@ use Illuminate\Support\ServiceProvider;
 //use App\View\Components\AdminComponent\NavbarComponent; // admin dashboard component
 use App\View\Components\AdminComponent\SidebarComponent; // admin dashboard component
 use App\View\Components\AdminComponent\ToolbarComponent; // admin dashboard component
+use App\View\Components\AdminComponent\CreatePostComponent; // admin dashboard component
+use App\View\Components\AdminComponent\ShowAllPosts; // admin dashboard component
+
+
 
 
 
@@ -43,6 +47,9 @@ class AppServiceProvider extends ServiceProvider
         // Admin Dashboard Section Start
         Blade::component('admin-sidebar',SidebarComponent::class);
         Blade::component('admin-toolbar',ToolbarComponent::class);
+        Blade::component('admin-create-post',CreatePostComponent::class);
+        Blade::component('show-all-posts',ShowAllPosts::class);
+
         // Admin Dashboard Section End
 
 

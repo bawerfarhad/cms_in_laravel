@@ -12,33 +12,33 @@
                 <!-- Blog Entries Column -->
                 <div class="col-md-8">
                     <!-- Title -->
-                    <h1 class="mt-4">title</h1>
-                {{--    <h1 class="mt-4">{{$post->title}}</h1>--}}
+                    {{-- <h1 class="mt-4">title</h1> --}}
+                   <h1 class="mt-4">{{$post->title}}</h1>
 
                 <!-- Author -->
                     <p class="lead">
                         by
-                        <a href="#">name</a>
-                        {{--        <a href="#">{{$post->user->name}}</a>--}}
+                        {{-- <a href="#">name</a> --}}
+                               <a href="#">{{$post->user->name}}</a>
                     </p>
 
                     <hr>
 
                     <!-- Date/Time -->
-                    <p>Posted on date </p>
-                    {{--    <p>Posted on {{$post->created_at->diffForHumans()}} </p>--}}
+                    {{-- <p>Posted on date </p> --}}
+                       <p>Posted on {{$post->created_at->diffForHumans()}} </p>
 
                     <hr>
 
                     <!-- Preview Image -->
-                    <img class="img-fluid rounded" src="https://images4.alphacoders.com/936/936378.jpg" alt="">
-                    {{--    <img class="img-fluid rounded" src="{{$post->post_image}}" alt="">--}}
+                    {{-- <img class="img-fluid rounded" src="https://images4.alphacoders.com/936/936378.jpg" alt=""> --}}
+                       <img class="img-fluid rounded" src="{{$post->post_image}}" alt="">
 
                     <hr>
 
                     <!-- Post Content -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi perspiciatis placeat quae quod recusandae sequi voluptatum. Architecto autem culpa cupiditate enim est, laboriosam, obcaecati perspiciatis quae quam, quia totam ullam.</p>
-                    {{--    <p>{{$post->body}}</p>--}}
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi perspiciatis placeat quae quod recusandae sequi voluptatum. Architecto autem culpa cupiditate enim est, laboriosam, obcaecati perspiciatis quae quam, quia totam ullam.</p> --}}
+                       <p>{{$post->body}}</p>
 
                     <hr>
 
