@@ -38,3 +38,7 @@
 6- look at "app/Providers/RouteServiceProvider.php" for redirecting user after logged in or register
 
 7- take a look again for components and the way they work 
+
+8- make a post table, create a users foreign key in posts table, make a relationship between posts and users (each post has only one writer, each user has many posts) look at the user and post model for more, make a factory and seed the dummy data to the table and database. 
+for all of this make a factory in terminal using command => php artisan make:factory PostFactory <= this will make a fle in the database\factories\PostFactory.php, 
+in this file return the factory template, look at the file, after all of this seed the factory data we made, look at the database\seeders\DatabaseSeeder.php for more.

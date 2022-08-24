@@ -3,8 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 
+use Carbon\Factory;
+use Illuminate\Database\Seeder;
+// use App\Models\Post;
+// use App\Models\User;
+use database\factories\PostFactory;
+use database\factories\UserFactory;
+// use Illuminate\Database\Eloquent\Factories\Factory;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,11 +20,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+
+        // \App\Models\User::factory(10)->create(); // working, makes 10 users
+        // \App\Models\Post::factory(200)->create(); // working
+
+
+
+
+
+        // factory(User::class,200)->create->each(
+        //     function($user){
+        //         $user->posts()->save(Factory(Post::class)->make());
+        //     }
+        // ); // not
+
+
     }
 }
