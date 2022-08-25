@@ -24,6 +24,7 @@
                         <th>Image</th>
                         <th>Created At</th>
                         <th>Updated At</th>
+                        <th>delete</th>
 
                     </tr>
                     </thead>
@@ -35,6 +36,7 @@
                         <th>Image</th>
                         <th>Created At</th>
                         <th>Updated At</th>
+                        <th>delete</th>
 
                     </tr>
                     </tfoot>
@@ -51,6 +53,13 @@
                             </td>
                             <td>{{ $post->created_at->diffForHumans() }}</td>
                             <td>{{ $post->updated_at->diffForHumans() }}</td>
+                            <td>
+                                <form action="{{route('admin.destroy',$post->id)}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                             @endforeach()
 

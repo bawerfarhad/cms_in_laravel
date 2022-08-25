@@ -19,7 +19,30 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
+                    {{-- first way of showing the flash message--}}
                 <!-- Page Heading -->
+{{--                @if(session::has('message'))--}}
+
+{{--                <div class="alert alert-danger">--}}
+{{--                    {{Session::get('message')}}--}}
+{{--                </div>--}}
+
+{{--                @endif--}}
+{{--                --}}
+                        {{-- other way of showing the flash message--}}
+                @if(session('deleted-message'))
+                    <div class="alert alert-danger">
+                        {{session('deleted-message')}}
+                    </div>
+
+                @elseif (session('created-message'))
+                    <div class="alert alert-success">
+                        {{session('created-message')}}
+                    </div>
+                @endif
+
+
+
                 {{-- create post component in the components/admin-components/crete post component --}}
                  <x-show-all-posts  :value="$posts" />
 

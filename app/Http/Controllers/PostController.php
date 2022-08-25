@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -56,10 +57,24 @@ class PostController extends Controller
 
         $new_post->save();  //auth()->user()->posts()->save(); // it works
 
-        // auth()->user()->posts()->create($inputs);
-        return view('admin.posts.show-all-posts');
+        // auth()->user()->posts()-
+        Session::flash('created-message','post "'.$new_post->title .'" has been created');
+        return redirect()->route('admin.posts');
 
         // dd(auth()->user()->id);
+    }
+                // first way to delete the record and show the flash message
+//    public function destroy(Post $post){
+//        $post->delete();
+//        Session::flash('message','post has been deleted');
+//        return back();
+//    }
+
+    // other way to delete the record and show the flash message
+    public function destroy(Post $post, Request $request){
+        $post->delete();
+        $request->session()->flash('deleted-message','post "'.$post->title.'" has been deleted');
+        return back();
     }
 
 }
