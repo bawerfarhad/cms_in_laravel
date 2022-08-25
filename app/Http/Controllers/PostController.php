@@ -12,7 +12,8 @@ class PostController extends Controller
     //
 
     public function index(){
-        return view('admin.posts.show-all-posts');
+        $posts= Post::all();
+        return view('admin.posts.show-all-posts',['posts'=>$posts]);
     }
 
 
@@ -26,7 +27,7 @@ class PostController extends Controller
     }
     // public function store(){
     public function store(Request $request){ // use this way to works with the $new_post->save();
-      
+
         // $inputs= request()->validate([
         //     'title'=>'required',
         //     'body'=>'required',
@@ -42,7 +43,7 @@ class PostController extends Controller
         if($request->post_image){
             $request->post_image= $request->post_image->store('images');
         }
-        
+
         $new_post= new Post;
 
         $new_post->user_id=auth()->user()->id;
@@ -52,7 +53,7 @@ class PostController extends Controller
         $new_post->body=$request->body;
 
         $new_post->post_image=$request->post_image;
-        
+
         $new_post->save();  //auth()->user()->posts()->save(); // it works
 
         // auth()->user()->posts()->create($inputs);

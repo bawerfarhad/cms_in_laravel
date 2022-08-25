@@ -20,9 +20,8 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                
                 {{-- create post component in the components/admin-components/crete post component --}}
-                 <x-show-all-posts /> 
+                 <x-show-all-posts  :value="$posts" />
 
             </div>
             <!-- /.container-fluid -->

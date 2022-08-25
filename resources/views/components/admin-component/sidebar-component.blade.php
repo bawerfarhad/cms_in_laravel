@@ -36,7 +36,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Post Section:</h6>
                 <a class="collapse-item" href="{{ route('admin.create') }}">Create Post</a>
-                <a class="collapse-item" href="{{ route('admin.index') }}">Show All Posts</a>
+                <a class="collapse-item" href="{{ route('admin.posts') }}">Show All Posts</a>
             </div>
         </div>
     </li>

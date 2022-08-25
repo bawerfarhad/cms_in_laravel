@@ -1,20 +1,19 @@
 <?php
 
-namespace App\View\Components\AdminComponent;
+namespace App\View\Components\Scripts;
 
 use Illuminate\View\Component;
 
-class ShowAllPosts extends Component
+class AllScripts extends Component
 {
-    public $posts;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($value)
+    public function __construct()
     {
-        $this->posts= $value;
+        //
     }
 
     /**
@@ -24,6 +23,6 @@ class ShowAllPosts extends Component
      */
     public function render()
     {
-        return view('components.admin-component.show-all-posts');
+        return view('components.scripts.all-scripts');
     }
 }

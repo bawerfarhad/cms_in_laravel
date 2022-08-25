@@ -26,10 +26,10 @@ Route::get('/posts/details/{post}', [PostController::class, 'show'])->name('post
 
 
 Route::middleware('auth')->group(function(){
-    
+
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/posts/create', [PostController::class, 'create'])->name('admin.create');
     Route::post('/admin/post/save', [PostController::class, 'store'])->name('admin.store');
-    Route::get('/admin/posts/', [PostController::class, 'index'])->name('admin.index');
+    Route::get('/admin/posts/', [PostController::class, 'index'])->name('admin.posts');
 
 });

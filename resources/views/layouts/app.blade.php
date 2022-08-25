@@ -40,6 +40,11 @@
         'resources/css/admin/sb-admin-2.css',
         'resources/vendor/jquery/jquery.js',
         'resources/vendor/jquery-easing/jquery.easing.js',
+        'resources/js/admin/sb-admin-2.js',
+        'resources/vendor/datatables/jquery.dataTables.js',
+        'resources/js/admin/datatables-demo.js',
+        'resources/vendor/datatables/dataTables.bootstrap4.css',
+        'resources/vendor/datatables/dataTables.bootstrap4.js',
     ])
 </head>
 <body>
