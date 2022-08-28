@@ -44,7 +44,7 @@
         'resources/vendor/datatables/jquery.dataTables.js',
         'resources/js/admin/datatables-demo.js',
         'resources/vendor/datatables/dataTables.bootstrap4.css',
-        'resources/vendor/datatables/dataTables.bootstrap4.js',
+{{--        'resources/vendor/datatables/dataTables.bootstrap4.js',--}}
     ])
 </head>
 <body>

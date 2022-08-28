@@ -13,14 +13,14 @@ class PostController extends Controller
     //
 
     public function index(){
-        $posts=auth()->user()->posts;
+        $posts=Post::paginate(5); // shows all posts from all users
+//        $posts=auth()->user()->posts()->paginate(5); // shows only the posts from current logged in user
         return view('admin.posts.show-all-posts',['posts'=>$posts]);
     }
 
 
     public function show(Post $post){
 
-        $this->authorize('view',$post);
         // $post=Post::findOrFail($id);
         return view('blog-section.blogs', compact('post'));
     }
@@ -75,6 +75,11 @@ class PostController extends Controller
 
 
     public function edit(Post $post){
+//        $this->authorize('view',$post);
+
+//        if(auth->user()->can('view',$post)){ another way to prevent users from viewing the post
+//
+//        }
         return view('admin.posts.edit-post',['post'=>$post]);
     }
 
@@ -105,7 +110,7 @@ class PostController extends Controller
 
         $post->post_image = $request->post_image;
 
-        $this->authorize('update',$post);
+        $this->authorize('update',$post); // check if the user belongs to this post or not
 
         $post->save();  //auth()->user()->posts()->save(); // it works
 
@@ -116,6 +121,7 @@ class PostController extends Controller
 
         // other way to delete the record and show the flash message
     public function destroy(Post $post, Request $request){
+        $this->authorize('delete',$post);
         $post->delete();
         $request->session()->flash('deleted-message','post "'.$post->title.'" has been deleted');
         return back();

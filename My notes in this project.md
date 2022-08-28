@@ -57,3 +57,6 @@ in this file return the factory template, look at the file, after all of this se
     look at the policy we made in app\Policies\PostPolicy.php, and in the posts controller we need to call the policy for applying to the all users
 
     if we want to prevent others to update any other posts we have to configure in the policy, in the update function look at the app\Policies\PostPolicy.php at the 
+
+11- we can prevent any user delete anyone post by adding @can('view', $post) in the foreach of the posts for delete button, this will disable the delete button for unwanted users
+    we can also make this happen in the route look at the route
