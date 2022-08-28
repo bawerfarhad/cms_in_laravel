@@ -43,4 +43,17 @@
 for all of this make a factory in terminal using command => php artisan make:factory PostFactory <= this will make a fle in the database\factories\PostFactory.php, 
 in this file return the factory template, look at the file, after all of this seed the factory data we made, look at the database\seeders\DatabaseSeeder.php for more.
 
-9- upload the image and file to the storage and make a link to the public directory using the command: php artisan storage:link
+9- upload the image and file to the storage and make a link to the public directory using the command: php artisan storage:
+
+10- if any user log in to the system they can delete any thing in the database, so, to prevent this we need to create a policy
+    the command is: php artisan make:policy PostPolicy --model=Post this will create new folder in the app\Policies\PostPolicy.php
+    if the folder wes not create, you need to make it in yourself. for this you need to make some configs in app\Providers\AuthServiceProvider.php
+    in line 
+
+            protected $policies = [
+                // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+            ];
+    we have to prevent any user to update our posts for this purpose we need to make  policy and in the update function we have to configure the policy 
+    look at the policy we made in app\Policies\PostPolicy.php, and in the posts controller we need to call the policy for applying to the all users
+
+    if we want to prevent others to update any other posts we have to configure in the policy, in the update function look at the app\Policies\PostPolicy.php at the 

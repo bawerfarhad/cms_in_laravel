@@ -14,6 +14,7 @@ use App\View\Components\AdminComponent\SidebarComponent; // admin dashboard comp
 use App\View\Components\AdminComponent\ToolbarComponent; // admin dashboard component
 use App\View\Components\AdminComponent\CreatePostComponent; // admin dashboard component
 use App\View\Components\AdminComponent\ShowAllPosts; // admin dashboard component
+use App\View\Components\AdminComponent\EditComponent; // admin dashboard component
 
 
 
@@ -48,7 +49,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('admin-sidebar',SidebarComponent::class);
         Blade::component('admin-toolbar',ToolbarComponent::class);
         Blade::component('admin-create-post',CreatePostComponent::class);
-        Blade::component('show-all-posts',ShowAllPosts::class);
+        Blade::component('admin-show-all-posts',ShowAllPosts::class);
+        Blade::component('admin-edit-post',EditComponent::class);
 
         // Admin Dashboard Section End
 

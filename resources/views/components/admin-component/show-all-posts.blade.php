@@ -25,6 +25,7 @@
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>delete</th>
+                        <th>Edit</th>
 
                     </tr>
                     </thead>
@@ -37,6 +38,7 @@
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>delete</th>
+                        <th>Edit</th>
 
                     </tr>
                     </tfoot>
@@ -49,8 +51,13 @@
                             <td>{{ $post->user->name }}</td>
                             <td>{{ $post->title }}</td>
                             <td>
-                                <img class="rounded-2" height="60px" src="{{asset('/storage/'.$post->post_image)}}" alt="">
+                                <img class="rounded-2" height="60px" src="{{$post->post_image}}" alt="">
                             </td>
+
+{{--                            <td>{{}}</td>--}}
+{{--                            <td>{{$post->post_image}}</td>--}}
+
+
                             <td>{{ $post->created_at->diffForHumans() }}</td>
                             <td>{{ $post->updated_at->diffForHumans() }}</td>
                             <td>
@@ -59,6 +66,9 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.edit',$post->id)}}" class="btn btn-info btn-sm">Edit</a>
                             </td>
                         </tr>
                             @endforeach()

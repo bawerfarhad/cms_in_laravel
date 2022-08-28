@@ -13,12 +13,14 @@ class PostController extends Controller
     //
 
     public function index(){
-        $posts= Post::all();
+        $posts=auth()->user()->posts;
         return view('admin.posts.show-all-posts',['posts'=>$posts]);
     }
 
 
     public function show(Post $post){
+
+        $this->authorize('view',$post);
         // $post=Post::findOrFail($id);
         return view('blog-section.blogs', compact('post'));
     }
@@ -70,7 +72,49 @@ class PostController extends Controller
 //        return back();
 //    }
 
-    // other way to delete the record and show the flash message
+
+
+    public function edit(Post $post){
+        return view('admin.posts.edit-post',['post'=>$post]);
+    }
+
+    public function update($my_post, Request $request)
+    {
+        $post=Post::findOrFail($my_post);
+
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+
+        if ($request->post_image) {
+            $request->post_image = $request->post_image->store('images');
+        }
+        else{
+            $request->post_image='null';
+        }
+
+
+
+        $post->user_id = auth()->user()->id;
+
+        $post->title = $request->title;
+
+        $post->body = $request->body;
+
+        $post->post_image = $request->post_image;
+
+        $this->authorize('update',$post);
+
+        $post->save();  //auth()->user()->posts()->save(); // it works
+
+        Session::flash('updated-message','post "'.$post->title .'" has been updated');
+        return redirect()->route('admin.posts');
+
+    }
+
+        // other way to delete the record and show the flash message
     public function destroy(Post $post, Request $request){
         $post->delete();
         $request->session()->flash('deleted-message','post "'.$post->title.'" has been deleted');

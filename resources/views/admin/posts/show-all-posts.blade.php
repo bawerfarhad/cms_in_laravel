@@ -39,12 +39,17 @@
                     <div class="alert alert-success">
                         {{session('created-message')}}
                     </div>
+
+                @elseif (session('updated-message'))
+                    <div class="alert alert-info">
+                        {{session('updated-message')}}
+                    </div>
                 @endif
 
 
 
                 {{-- create post component in the components/admin-components/crete post component --}}
-                 <x-show-all-posts  :value="$posts" />
+                 <x-admin-show-all-posts  :value="$posts" />
 
             </div>
             <!-- /.container-fluid -->

@@ -12,9 +12,15 @@
 
             <!-- Blog Post -->
             <div class="card mb-4">
-{{--                <img class="card-img-top" src="{{asset('/storage/images/pic.jpg')}}" alt="Card image cap">--}}
-                <img class="card-img-top" src="{{asset('/storage/'.$post->post_image)}}" alt="Card image cap">
-                <div class="card-body">
+{{--                <img class="card-img-top" src="{{asset('/storage/images/default.png')}}" alt="Card image cap">--}}
+                @if($post->post_image =='http://127.0.0.1:8000/storage/null')
+                    <img class="card-img-top" src="{{asset('/storage/images/default.png')}}" alt="{{$post->title}}">
+                @else
+                    <img class="card-img-top" src="{{$post->post_image}}" alt="{{$post->title}}">
+                @endif
+
+
+                    <div class="card-body">
                     <h2 class="card-title">{{ $post->title }}</h2>
                     <p class="card-text">{{ Str::limit($post->body,'50',' ....') }}</p>
                     <a href="{{route('post.details', $post->id)}}" class="btn btn-primary">Read More &rarr; </a>
