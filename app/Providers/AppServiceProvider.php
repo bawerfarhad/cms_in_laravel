@@ -15,8 +15,11 @@ use App\View\Components\AdminComponent\ToolbarComponent; // admin dashboard comp
 use App\View\Components\AdminComponent\CreatePostComponent; // admin dashboard component
 use App\View\Components\AdminComponent\ShowAllPosts; // admin dashboard component
 use App\View\Components\AdminComponent\EditComponent; // admin dashboard component
+use App\View\Components\AdminComponent\Footer; // admin dashboard component
+use App\View\Components\AdminComponent\UserSettings\ProfileComponent; // admin dashboard component
 
 
+use Illuminate\Pagination\Paginator; // this line allow us to work with pagination css design
 
 
 
@@ -39,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        paginator::useBootstrap();  // this line tells the pagination design should be in bootstrap
+
+
         // Home Blog Section Start
         Blade::component('blog',HomeBlogComponent::class);
         Blade::component('navbar',HomeNavbarComponent::class);
@@ -51,8 +58,14 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('admin-create-post',CreatePostComponent::class);
         Blade::component('admin-show-all-posts',ShowAllPosts::class);
         Blade::component('admin-edit-post',EditComponent::class);
+        Blade::component('admin-footer',Footer::class);
 
         // Admin Dashboard Section End
+
+        // Users Section Start
+
+        Blade::component('user-profile',ProfileComponent::class);
+        // Users Section End
 
 
 

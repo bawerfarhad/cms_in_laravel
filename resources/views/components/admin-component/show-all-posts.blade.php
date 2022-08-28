@@ -24,7 +24,7 @@
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>delete</th>
-                        <th>Edit</th>
+
 
                     </tr>
                     </thead>
@@ -37,7 +37,7 @@
                         <th>Created At</th>
                         <th>Updated At</th>
                         <th>delete</th>
-                        <th>Edit</th>
+
 
                     </tr>
                     </tfoot>
@@ -48,7 +48,7 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td>{{ $post->user->name }}</td>
-                            <td>{{ $post->title }}</td>
+                            <td><a href="{{route('admin.edit',$post->id)}}" class="btn btn-info btn-sm">Edit</a> | {{ $post->title }}</td>
                             <td>
                                 <img class="rounded-2" height="60px" src="{{$post->post_image}}" alt="">
                             </td>
@@ -71,16 +71,24 @@
                                 </form>
 {{--                                @endcan()--}}
                             </td>
-                            <td>
-                                <a href="{{route('admin.edit',$post->id)}}" class="btn btn-info btn-sm">Edit</a>
-                            </td>
+
+
+
                         </tr>
                     @endforeach()
                     </tbody>
                 </table>
+{{--                {{$posts->links()}}   --}}{{-- default laravel pagination links --}}
+                {{-- to make it work you have to configure the app/Providers/AppServiceProvider.php look at this file --}}
+
+                {{$posts->onEachSide(1)->links()}}
+
+
             </div>
+
         </div>
+
     </div>
-    {{$posts->links()}}
+
 </div>
 <!-- /.container-fluid -->

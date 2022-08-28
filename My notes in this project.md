@@ -60,3 +60,26 @@ in this file return the factory template, look at the file, after all of this se
 
 11- we can prevent any user delete anyone post by adding @can('view', $post) in the foreach of the posts for delete button, this will disable the delete button for unwanted users
     we can also make this happen in the route look at the route
+
+12-[ 
+        table for all permissions,
+        table for all roles,
+        table for set permission to the users,
+        table for set roles to the users,
+        table for connecting permissions to the roles
+   ]
+
+13- after making a relationship, we are going to make a role for users using the command
+    $user->roles()->attach($admin)
+    add admin role for current user logged in, the output located in the role_user table in the database
+    $user->roles()->detach($admin)
+    remove the permission from the current user
+    
+    make a permission called view_dashboard ==  $view_dashboard= App\Models\Permission::create(['name'=>'View Dashboard','slug'=>'view-dashboard']);
+    
+    give the view_dashboard permission to the admin $admin->permissions()->attach($view_dashboard);
+    
+    look at the tables, the permission View Dashboard added to the permission table, the admin role in the roles table get the dashboard permission 
+    
+14- logout functionality in admin-index.blade.php line 70
+

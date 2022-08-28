@@ -51,6 +51,7 @@
                 {{-- create post component in the components/admin-components/crete post component --}}
                  <x-admin-show-all-posts  :value="$posts" />
 
+
             </div>
             <!-- /.container-fluid -->
 

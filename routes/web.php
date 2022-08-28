@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -34,7 +35,9 @@ Route::middleware('auth')->group(function(){
     Route::delete('/admin/posts/{post}', [PostController::class, 'destroy'])->name('admin.destroy');
     Route::patch('/admin/posts/{post}/update', [PostController::class, 'update'])->name('admin.update');
     Route::get('/admin/posts/{post}/edit', [PostController::class, 'edit'])->name('admin.edit');
+
+    Route::get('/admin/user/{user}/profile',[UserController::class,'show'])->name('user.profile.show');
 });
 
-//Route::get('/admin/posts/{post}/edit', [PostController::class, 'edit'])->middleware('can:view,post')->name('admin.edit');
+Route::get('/admin/posts/{post}/edit', [PostController::class, 'edit'])->middleware('can:view,post')->name('admin.edit');
 // the other way to prevent editing posts from unwanted users

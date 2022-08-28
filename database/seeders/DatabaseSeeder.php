@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
 
 //         \App\Models\User::factory(10)->create(); // working, makes 10 users
-         Post::factory(10)->create(); // working
+         Post::factory(200)->create(); // working
 
 
 
